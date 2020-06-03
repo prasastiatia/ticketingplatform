@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Beranda";
+   
+}
+
+    <div class="jumbotron">
+        <h1>Selamat datang di Tiketku Platform!</h1>
+        <br />
+        @Html.ActionLink("Tambah Data", "AddTicket", "User", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+

@@ -1,0 +1,23 @@
+﻿@model TestWebMVC.Models.user
+@{
+    ViewBag.Title = "Login";
+}
+<br />
+
+<h2>@ViewBag.Title</h2>
+<br />
+@using (Html.BeginForm("verify","Account",FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model=>model.UserName)
+        @Html.EditorFor(model=>model.UserName, new {htmlAttributes= new {@class="form-control"}})
+        
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+        
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+}

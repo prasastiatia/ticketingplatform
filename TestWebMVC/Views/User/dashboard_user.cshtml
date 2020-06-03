@@ -1,0 +1,29 @@
+﻿
+<h2>@ViewBag.Title</h2>
+
+<br />
+
+<h3> Selamat datang, @Session["Name"].ToString()</h3>
+
+<br />
+<div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Informasi</h4>
+    <p>Halaman ini merupakan halaman CRUD ticket platform. Silahkan kelola tiket anda  di platform kami.</p>
+</div>
+<br />
+
+@if (Session["Role"].ToString() == "user")
+{
+    <div>
+    @Html.ActionLink("Tambah Data", "AddTicket", "User", new { area = "" }, new { @class = "btn btn-primary" })
+    &nbsp;@Html.ActionLink("Data Tiket", "AllTicket", "User", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+}
+
+@if (Session["Role"].ToString()== "owner")
+{
+    <div>
+    @Html.ActionLink("Data Tiket", "AllTicket", "User", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+}
+

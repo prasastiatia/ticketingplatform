@@ -1,0 +1,85 @@
+﻿@model IEnumerable<TestWebMVC.Models.ticket>
+
+@{
+    ViewBag.Title = "Data Tiket";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Tambah Data", "AddTicket")
+</p>
+
+@using (Html.BeginForm("AllTicket", "User", FormMethod.Get))
+{
+
+    <b> Search Option: </b>@Html.RadioButton("option", "owner") <text> Owner</text> @Html.RadioButton("option", "status") <text> Status </text>
+    @Html.RadioButton("option", "category")<text> Category</text> @Html.TextBox("search")
+    <input type="submit" name="submit" value="Search" />
+}
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_created_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_assignee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ticket_status)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0) { <tr> <td colspan = "3"> Records not found </td>
+    </tr >
+
+    } else {
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_created_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_assignee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket_status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditTicket", new { id = item.ticket_id }) |
+                @Html.ActionLink("Details", "DetailTicket", new { id = item.ticket_id }) |
+                @Html.ActionLink("Delete", "DeleteTicket", new { id = item.ticket_id })
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+

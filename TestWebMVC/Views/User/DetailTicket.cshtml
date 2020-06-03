@@ -1,0 +1,74 @@
+﻿@model TestWebMVC.Models.ticket
+
+@{
+    ViewBag.Title = "DetailTicket";
+}
+
+<h2>Detail Ticket</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+        @Html.DisplayNameFor(model => model.ticket_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ticket_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ticket_created_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_created_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ticket_assignee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_assignee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ticket_owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ticket_category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ticket_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ticket_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditTicket", new { id = Model.ticket_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
